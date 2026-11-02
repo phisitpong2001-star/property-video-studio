@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap");
+
+:root {
+  --ink: #18181b;
+  --muted: #5f5f68;
+  --line: #e4e4e7;
+  --paper: #ffffff;
+  --soft: #f4f4f5;
+  --accent: #1f6f5c;
+  --todo-bg: #fff3c4;
+  --todo-ink: #6b4e00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f4f4f5;
+    --muted: #a8a8b0;
+    --line: #34343a;
+    --paper: #18181b;
+    --soft: #232327;
+    --accent: #5cc2a8;
+    --todo-bg: #4a3a08;
+    --todo-ink: #ffe28a;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.65 "IBM Plex Sans Thai", system-ui, sans-serif; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 24px; }
+.prose { max-width: 720px; }
+
+header.top { border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; font-weight: 600; text-decoration: none; }
+.brand img { width: 28px; height: 28px; border-radius: 7px; }
+nav.links { display: flex; gap: 16px; font-size: 14px; }
+nav.links a { color: var(--muted); text-decoration: none; padding: 10px 0; }
+nav.links a:hover, nav.links a[aria-current] { color: var(--ink); }
+
+.hero { padding-block: 72px 56px; }
+.hero h1 { max-width: 16em; margin: 0; font-size: clamp(34px, 6vw, 54px); font-weight: 600; line-height: 1.15; letter-spacing: -0.015em; }
+.hero p { max-width: 36em; margin: 20px 0 0; color: var(--muted); font-size: 18px; }
+
+section.band { padding: 48px 0; border-top: 1px solid var(--line); }
+section.band h2 { margin: 0 0 24px; font-size: 22px; font-weight: 600; line-height: 1.3; }
+
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li { counter-increment: step; }
+.steps li::before { content: counter(step); display: block; margin-bottom: 8px; color: var(--accent); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.steps b, .kinds b { display: block; font-weight: 600; }
+.steps span, .kinds span { display: block; margin-top: 4px; color: var(--muted); font-size: 15px; }
+
+.kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+
+.status { width: 100%; border-collapse: collapse; font-size: 15px; }
+.status th, .status td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.status th { font-weight: 500; }
+.status td:last-child { padding-right: 0; color: var(--muted); }
+.status thead th { color: var(--muted); font-size: 13px; }
+
+.doc { padding-block: 48px 64px; }
+.doc h1 { margin: 0; font-size: 34px; font-weight: 600; line-height: 1.2; }
+.doc .meta { margin: 8px 0 32px; color: var(--muted); font-size: 14px; }
+.doc h2 { margin: 36px 0 8px; font-size: 19px; font-weight: 600; line-height: 1.35; }
+.doc p, .doc ul { margin: 0 0 12px; }
+.doc ul { padding-left: 20px; }
+.doc li { margin-bottom: 6px; }
+.scroll { overflow-x: auto; margin-bottom: 16px; }
+
+.todo { padding: 1px 5px; border-radius: 4px; background: var(--todo-bg); color: var(--todo-ink); font-size: .94em; font-weight: 500; }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 24px; padding-bottom: 32px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+footer a { color: inherit; }
+
+@media (max-width: 760px) {
+  .wrap { padding-inline: 16px; }
+  .hero { padding-block: 48px 40px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kinds { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 420px) {
+  .steps { grid-template-columns: minmax(0, 1fr); }
+}

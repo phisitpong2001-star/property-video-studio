@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Finishing sign-in · Property Video Studio</title>
+<link rel="stylesheet" href="../../../site.css">
+</head>
+<body>
+<main class="wrap doc"><div class="prose">
+  <h1>Finishing sign-in</h1>
+  <p>This page passes the sign-in back to the Property Video Studio app running on this computer, and stores nothing.</p>
+  <p>If nothing happens, make sure the app is running, then <a id="go" href="#">continue to the app</a>. Your browser may ask you to allow access to apps on this device.</p>
+</div></main>
+<script>
+  var target = 'http://localhost:4790/oauth/meta/callback' + location.search;
+  document.getElementById('go').href = target;
+  location.replace(target);
+</script>
+</body>
+</html>
